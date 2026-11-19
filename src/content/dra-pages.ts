@@ -63,4 +63,4 @@ export const pages: Record<string, { title: string; html: string; css: string }>
 };
 
 // Serve the resource page at legacy links from the previous site.
-pages['credit-repair'] = pages.resources;
+pages['credit-repair'] = pages['resources']!;
