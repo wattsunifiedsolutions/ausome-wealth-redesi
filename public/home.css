@@ -144,3 +144,21 @@
     padding: 7px 0;
   }
 }
+
+.story-photo {
+  display: block;
+  align-self: stretch;
+  width: 100%;
+  height: clamp(440px, 43vw, 580px);
+  object-fit: cover;
+  object-view-box: inset(0 10% 0 10%);
+  object-position: 65% 42%;
+}
+
+@media (max-width: 560px) {
+  .story-photo {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-position: 65% 44%;
+  }
+}
