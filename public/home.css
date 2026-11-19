@@ -82,7 +82,7 @@
 
 
 .site-header {
-  background: #203650;
+  background: var(--navy-deep);
   border-bottom: 0;
 }
 
@@ -192,5 +192,30 @@
     height: 100%;
     object-view-box: none;
     object-position: 84% center;
+  }
+}
+
+@media (min-width: 1101px) {
+  .site-header {
+    position: absolute;
+    inset: 0 0 auto;
+    background: transparent;
+  }
+
+  .hero .shell {
+    padding-top: 74px;
+  }
+
+  .header-inner nav > a {
+    text-shadow: 0 1px 4px #071325, 0 1px 10px #071325;
+  }
+
+  .header-inner .header-button {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+
+  .header-inner .header-button:hover {
+    background: #eed3a8;
   }
 }
