@@ -77,18 +77,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Studio App" },
-      { name: "description", content: "AI Studio Generated Project" },
-      { name: "author", content: "AI Studio" },
-      { property: "og:title", content: "AI Studio App" },
-      { property: "og:description", content: "AI Studio Generated Project" },
+      { title: "DRA Website Redesign — In Progress" },
+      {
+        name: "description",
+        content:
+          "DRA Tax & Financial Solutions / Down Right Ausome Wealth — website design in progress.",
+      },
+      { name: "author", content: "DRA Tax & Financial Solutions" },
+      {
+        property: "og:title",
+        content: "DRA Website Redesign — In Progress",
+      },
+      {
+        property: "og:description",
+        content:
+          "DRA Tax & Financial Solutions / Down Right Ausome Wealth — website design in progress.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap",
       },
     ],
   }),
