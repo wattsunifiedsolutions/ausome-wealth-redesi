@@ -162,3 +162,35 @@
     object-position: 65% 44%;
   }
 }
+
+.story-scene {
+  display: contents;
+}
+
+@media (min-width: 901px) {
+  .story {
+    isolation: isolate;
+  }
+
+  .story-inner {
+    min-height: clamp(430px, 36vw, 620px);
+  }
+
+  .story-copy {
+    padding-right: 24px;
+  }
+
+  .story-scene {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .story-photo {
+    width: 100%;
+    height: 100%;
+    object-view-box: none;
+    object-position: 84% center;
+  }
+}
