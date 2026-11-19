@@ -33,22 +33,49 @@
 @media(max-width:560px){.resource-band{display:flex;flex-direction:column;background:#f0e1c8}.resource-inner{min-height:0;order:1;width:calc(100% - 36px)}.resource-copy{width:100%;padding:32px 0 24px}.resource-copy h2{font-size:42px;line-height:1.04}.resource-copy p{font-size:16px;margin-top:18px}.resource-copy .button{font-size:19px;margin-top:21px}.resource-visual{position:relative;inset:auto;order:2;z-index:0;height:245px;width:100%;object-fit:cover;object-position:right bottom;margin:0}}
 @media(min-width:901px){.resource-inner{min-height:clamp(380px,32vw,500px);display:flex;align-items:center}.resource-copy{padding:44px 0}}
 
-.hero-person {
+.hero-scene {
   position: absolute;
-  inset: 0 0 0 auto;
-  width: 46%;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-person {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 42%;
+  object-position: 88% center;
+}
+
+.hero-copy {
+  width: 49%;
+}
+
+@media (max-width: 1100px) {
+  .hero-scene {
+    inset: 0 0 0 auto;
+    width: 46%;
+  }
+
+  .hero-person {
+    object-position: center 42%;
+  }
 }
 
 @media (max-width: 760px) {
-  .hero-person {
+  .hero-scene {
     position: static;
     width: 100%;
+    margin-top: 28px;
+    display: block;
+  }
+
+  .hero-person {
     height: auto;
     aspect-ratio: 4 / 5;
-    margin-top: 28px;
     object-position: center 44%;
+  }
+
+  .hero-copy {
+    width: 100%;
   }
 }
