@@ -31,16 +31,16 @@
 .dra-header .dra-contact{font-size:12px;padding:10px 13px}
 }
 
-/* Preserve the original light/gold logo's contrast against the white navigation. */
-.dra-header .brand{align-self:stretch;justify-content:center;min-width:224px;padding:8px 17px;background:#001b3d;text-decoration:none}
-.dra-header .brand img{width:190px;height:96px;max-width:100%;object-fit:contain}
-.dra-header-inner{min-height:104px}
+/* Official DRA logo contains pale lettering: display unaltered on navy, at legible size. */
+.dra-header .brand{align-self:stretch;justify-content:center;flex:0 0 270px;min-width:0;padding:9px 16px;background:#001b3d;text-decoration:none}
+.dra-header .brand img{display:block;width:238px;height:auto;max-width:100%;max-height:128px;object-fit:contain}
+.dra-header-inner{min-height:136px}
 @media(max-width:1090px){
- .dra-header .brand{min-width:188px;padding:7px 13px}
- .dra-header .brand img{width:160px;height:80px;max-width:100%}
+ .dra-header .brand{flex-basis:225px;padding:7px 12px}
+ .dra-header .brand img{width:200px;height:auto;max-width:100%;max-height:112px}
  .dra-header-inner{min-height:0}
 }
 @media(max-width:620px){
- .dra-header .brand{min-width:142px;padding:6px 10px}
- .dra-header .brand img{width:130px;height:69px;max-width:100%}
+ .dra-header .brand{flex-basis:175px;padding:6px 10px}
+ .dra-header .brand img{width:155px;height:auto;max-width:100%}
 }
