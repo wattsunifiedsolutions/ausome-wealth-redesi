@@ -314,3 +314,154 @@
   .hero-actions .button{font-size:14px;padding:11px 16px}
   .hero-actions .text-link{font-size:14px}
 }
+
+
+/* Second homepage section: editorial service pathways, no washes or card stacks. */
+.services{
+  background:#0b192e;
+  color:#f4f0e9;
+  padding:clamp(58px,6vw,92px) 0;
+}
+.services .services-grid{
+  display:grid;
+  grid-template-columns:minmax(265px,.82fr) minmax(0,1.42fr);
+  gap:clamp(38px,5.5vw,92px);
+  align-items:start;
+  padding:0;
+  border:0;
+}
+.services .service-intro{
+  display:block;
+  text-align:left;
+  max-width:none;
+  margin:0;
+  padding:8px clamp(26px,3.2vw,52px) 0 0;
+  border:0;
+  border-right:1px solid rgba(214,183,131,.45);
+}
+.services .service-intro .eyebrow{
+  color:#d6b783;
+  font:700 11px/1.6 "Raleway",Arial,sans-serif;
+  letter-spacing:2.3px;
+}
+.services .service-intro .small-rule{
+  margin:15px 0 26px;
+  width:48px;
+  background:#d6b783;
+}
+.services .service-intro h2{
+  font-family:"Noto Serif Display",Georgia,serif;
+  font-size:clamp(37px,3.35vw,53px);
+  line-height:1.16;
+  letter-spacing:-.03em;
+  color:#fff;
+}
+.services .service-intro h2 br{display:initial}
+.services .service-intro p{
+  max-width:310px;
+  margin:22px 0 0;
+  color:#e5e2dd;
+  font:500 15px/1.65 "Raleway",Arial,sans-serif;
+}
+.services .service-intro p br{display:initial}
+.services .service-list{
+  display:block;
+  width:100%;
+}
+.services .service-row,
+.services .service-row:first-child,
+.services .service-row:last-child{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  gap:19px;
+  min-height:0;
+  position:relative;
+  padding:22px 35px 24px 0;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid rgba(214,183,131,.46);
+  box-shadow:none;
+  color:#f4f0e9;
+  transform:none;
+  transition:color .18s ease;
+}
+.services .service-row:first-child{padding-top:0}
+.services .service-row:last-child{border-bottom:0;padding-bottom:0}
+.services .service-row:hover{
+  box-shadow:none;
+  transform:none;
+}
+.services .service-num{
+  display:block;
+  padding:8px 15px 0 0;
+  border:0;
+  border-right:1px solid rgba(214,183,131,.4);
+  color:#d6b783;
+  font:italic 500 31px/1 "Noto Serif Display",Georgia,serif;
+}
+.services .service-row .eyebrow{
+  color:#d6b783;
+  font:700 10px/1.5 "Raleway",Arial,sans-serif;
+  letter-spacing:2.1px;
+  margin-bottom:8px;
+}
+.services .service-row h3{
+  font-family:"Noto Serif Display",Georgia,serif;
+  font-size:clamp(26px,2.5vw,37px);
+  line-height:1.15;
+  color:#fff;
+  padding-right:20px;
+}
+.services .service-row p{
+  color:#e5e2dd;
+  font:500 14px/1.55 "Raleway",Arial,sans-serif;
+  max-width:530px;
+  margin-top:10px;
+}
+.services .service-row::after{
+  content:"↗";
+  position:absolute;
+  top:28px;
+  right:2px;
+  color:#d6b783;
+  font-size:22px;
+  line-height:1;
+  transition:transform .18s ease;
+}
+.services .service-row:first-child::after{top:5px}
+.services .service-row:hover::after{transform:translate(3px,-3px)}
+.services .service-row:focus-visible{
+  outline:2px solid #d6b783;
+  outline-offset:6px;
+}
+@media(max-width:800px){
+  .services .services-grid{grid-template-columns:1fr;gap:34px}
+  .services .service-intro{border-right:0;border-bottom:1px solid rgba(214,183,131,.4);padding:0 0 28px}
+  .services .service-intro h2{font-size:clamp(37px,5vw,47px)}
+  .services .service-intro p{max-width:520px}
+}
+@media(max-width:560px){
+  .services{padding:45px 0 52px}
+  .services .services-grid{gap:25px}
+  .services .service-intro{padding-bottom:23px}
+  .services .service-intro h2{font-size:38px}
+  .services .service-intro p{font-size:14px;margin-top:15px}
+  .services .service-row,
+  .services .service-row:first-child,
+  .services .service-row:last-child{
+    grid-template-columns:45px minmax(0,1fr);
+    gap:12px;
+    padding:19px 23px 20px 0;
+  }
+  .services .service-row:first-child{padding-top:0}
+  .services .service-row:last-child{padding-bottom:0}
+  .services .service-num{font-size:25px;padding:7px 8px 0 0}
+  .services .service-row h3{font-size:clamp(25px,7vw,32px)}
+  .services .service-row p{font-size:13px;line-height:1.55}
+  .services .service-row .eyebrow{font-size:9px;letter-spacing:1.5px}
+  .services .service-row::after{right:0;top:23px;font-size:18px}
+  .services .service-row:first-child::after{top:4px}
+}
+@media(prefers-reduced-motion:reduce){
+  .services .service-row::after{transition:none}
+}
