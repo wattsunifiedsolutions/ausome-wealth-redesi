@@ -8,19 +8,29 @@ const motionStyles = `
 .dra-motion-page button { transition: color .24s ease, background-color .24s ease, border-color .24s ease, transform .28s var(--dra-motion-ease), box-shadow .28s ease; }
 .dra-motion-page a:focus-visible,
 .dra-motion-page button:focus-visible { outline: 2px solid var(--gold, #d6b783); outline-offset: 4px; }
-.dra-motion-page [data-dra-reveal] { opacity: 0; transform: translate3d(0,22px,0); transition: opacity .68s ease, transform .78s var(--dra-motion-ease); }
-.dra-motion-page [data-dra-reveal].dra-in-view { opacity: 1; transform: translate3d(0,0,0); }
+.dra-motion-page [data-dra-reveal] { opacity: 1; transform: none; transition: transform .78s var(--dra-motion-ease); }
+.dra-motion-page [data-dra-reveal].dra-in-view { opacity: 1; transform: none; }
 .dra-motion-page [data-dra-reveal="card"]:nth-child(2) { transition-delay: 70ms; }
 .dra-motion-page [data-dra-reveal="card"]:nth-child(3) { transition-delay: 130ms; }
 .dra-motion-page [data-dra-reveal="card"]:nth-child(4) { transition-delay: 190ms; }
+.dra-motion-page img,
+.dra-motion-page picture,
+.dra-motion-page video {
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: none !important;
+  -webkit-filter: none !important;
+}
 .dra-motion-page .cinematic-hero img.hero-img,
 .dra-motion-page .mentor-hero img,
 .dra-motion-page .hero-home img,
-.dra-motion-page .hero-tax img { transform-origin: center; animation: dra-image-arrive 1.15s var(--dra-motion-ease) both; }
-@keyframes dra-image-arrive { from { transform: scale(1.035); clip-path: inset(0 0 0 2.5%); } to { transform: scale(1); clip-path: inset(0); } }
+.dra-motion-page .hero-tax img {
+  animation: none !important;
+  transform: none !important;
+  clip-path: none !important;
+} to { transform: scale(1); clip-path: inset(0); } }
 .dra-motion-page .hero-text h1,
-.dra-motion-page .mentor-hero h1 { animation: dra-title-arrive .8s .08s var(--dra-motion-ease) both; }
-@keyframes dra-title-arrive { from { transform: translate3d(0,18px,0); } to { transform: translate3d(0,0,0); } }
+.dra-motion-page .mentor-hero h1 { animation: none !important; } to { transform: translate3d(0,0,0); } }
 .dra-motion-page .card,
 .dra-motion-page .service-card,
 .dra-motion-page .resource-card,
