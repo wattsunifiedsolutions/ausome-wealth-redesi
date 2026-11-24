@@ -67,10 +67,14 @@ export const pages: Record<string, { title: string; html: string; css: string }>
     css: "/styles.css",
     html: `<style>
 .resource-hub{background:#F8F6F1;color:#001B3D}
-.resource-hub .rh-hero{padding:0;background:#F8F6F1;line-height:0}.resource-hub .rh-hero-link{display:block;width:100%;max-width:1671px;margin:0 auto;line-height:0}.resource-hub .rh-hero img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center}
-.resource-hub .rh-kicker{color:#D6C08F;letter-spacing:2.5px;text-transform:uppercase;font-size:12px;font-weight:700}
-.resource-hub .rh-hero h1{font-family:"Noto Serif Display",Georgia,serif;color:#fff;font-size:clamp(38px,5vw,60px);line-height:1.08;margin:16px auto;max-width:900px}
-.resource-hub .rh-hero p{font-family:Raleway,Arial,sans-serif;color:#F8F6F1;font-size:17px;line-height:1.7;max-width:720px;margin:0 auto}
+html{scroll-behavior:smooth}
+.resource-hub .rh-hero{min-height:480px;padding:80px 0;background:#F8F6F1 url('/assets/resource-hub-hero.webp') center right/cover no-repeat;display:flex;align-items:center}
+.resource-hub .rh-hero-inner{max-width:540px;padding:0 6vw;min-width:0}
+.resource-hub .rh-eyebrow{font-family:Raleway,Arial,sans-serif;color:#001B3D;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin:0}
+.resource-hub .rh-bar{display:block;width:48px;height:3px;background:#A99369;margin:14px 0 22px}
+.resource-hub .rh-hero h1{font-family:"Noto Serif Display",Georgia,serif;color:#001B3D;font-size:clamp(40px,5vw,60px);line-height:1.06;margin:0}
+.resource-hub .rh-cta{display:inline-block;margin-top:24px;font-family:Raleway,Arial,sans-serif;font-style:italic;color:#001B3D;font-size:18px;font-weight:600;text-decoration:underline;text-decoration-color:#A99369;text-underline-offset:5px}
+.resource-hub .rh-cta:hover{text-decoration-color:#001B3D}
 .resource-hub .rh-intro{max-width:900px;margin:0 auto;padding:54px 22px 24px;text-align:center}
 .resource-hub .rh-intro h2{font-family:"Noto Serif Display",Georgia,serif;font-size:34px;color:#001B3D;margin:0 0 12px}
 .resource-hub .rh-intro p{font-family:Raleway,Arial,sans-serif;color:#424A54;line-height:1.7}
@@ -88,9 +92,9 @@ export const pages: Record<string, { title: string; html: string; css: string }>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="dra-header"><div class="dra-header-inner"><a class="brand" href="/"><img src="/assets/dra-nav-logo.webp" alt="DRA Tax &amp; Financial Solutions logo" decoding="async"></a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/tax-services.html">Tax Services</a><a href="/about.html">Our Story</a><a href="/resources.html" aria-current="page">Resources</a></nav><a class="dra-contact" href="/contact.html">Let’s Talk</a></div></header>
 <main id="main" class="resource-hub">
-<section class="rh-hero"><a class="rh-hero-link" href="#resource-library" aria-label="Explore resources"><img src="/assets/resource-hub-hero.webp" alt="Down Right Ausome Wealth Digital Resource Shop. Explore Resources." width="600" height="338" fetchpriority="high" decoding="async"></a></section>
+<section class="rh-hero"><div class="rh-hero-inner"><p class="rh-eyebrow">DOWN RIGHT AUSOME WEALTH</p><span class="rh-bar" aria-hidden="true"></span><h1>Digital Resource Shop</h1><a class="rh-cta" href="#explore-library">Explore Resources →</a></div></section>
 <section class="rh-intro"><h2>Explore the Resource Library</h2><p>Start with the topic that matters to you. Browse educational resources and find the next step that fits your goals.</p></section>
-<section class="rh-grid" id="resource-library" aria-label="Resource categories">
+<section class="rh-grid" id="explore-library" aria-label="Resource categories">
 <article class="rh-item"><span class="rh-num">01 / CREDIT</span><h3>Credit Repair Guides</h3><p>Educational e-books and guides to help you better understand credit reports, credit habits, and potential next steps.</p><a class="rh-link" href="/credit-resources.html">Explore Credit Resources →</a></article>
 <article class="rh-item"><span class="rh-num">02 / DIY TOOLS</span><h3>DIY Credit Tools</h3><p>Explore self-guided credit education, tools, and the existing DIY credit repair program.</p><a class="rh-link" href="/credit-resources.html">Explore DIY Credit Tools →</a></article>
 <article class="rh-item"><span class="rh-num">03 / TAX EDUCATION</span><h3>Tax Education</h3><p>Find tax preparation information and trusted educational answers to common federal tax questions.</p><a class="rh-link" href="https://www.irs.gov/faqs" target="_blank" rel="noopener">Visit IRS Tax FAQs →</a></article>
