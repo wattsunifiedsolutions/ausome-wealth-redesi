@@ -67,7 +67,7 @@ export const pages: Record<string, { title: string; html: string; css: string }>
     css: "/styles.css",
     html: `<style>
 .resource-hub{background:#F8F6F1;color:#001B3D}
-.resource-hub .rh-hero{padding:76px 22px 68px;background:#001B3D;color:#fff;text-align:center}
+.resource-hub .rh-hero{padding:0;background:#F8F6F1;line-height:0}.resource-hub .rh-hero-link{display:block;width:100%;line-height:0}.resource-hub .rh-hero img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center}
 .resource-hub .rh-kicker{color:#D6C08F;letter-spacing:2.5px;text-transform:uppercase;font-size:12px;font-weight:700}
 .resource-hub .rh-hero h1{font-family:"Noto Serif Display",Georgia,serif;color:#fff;font-size:clamp(38px,5vw,60px);line-height:1.08;margin:16px auto;max-width:900px}
 .resource-hub .rh-hero p{font-family:Raleway,Arial,sans-serif;color:#F8F6F1;font-size:17px;line-height:1.7;max-width:720px;margin:0 auto}
@@ -83,14 +83,14 @@ export const pages: Record<string, { title: string; html: string; css: string }>
 .resource-hub .rh-link:hover{color:#98733C}
 .resource-hub .rh-note{max-width:1116px;margin:0 auto 64px;padding:24px;border-left:3px solid #D6C08F;background:#fff;font:14px/1.7 Raleway,Arial,sans-serif;color:#4A515B}
 @media(max-width:800px){.resource-hub .rh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.resource-hub .rh-hero{padding:54px 20px}.resource-hub .rh-grid{grid-template-columns:1fr;padding:12px 20px 48px}.resource-hub .rh-intro{padding:38px 20px 18px}.resource-hub .rh-item{padding:22px}}
+@media(max-width:560px){.resource-hub .rh-hero img{max-height:none}.resource-hub .rh-grid{grid-template-columns:1fr;padding:12px 20px 48px}.resource-hub .rh-intro{padding:38px 20px 18px}.resource-hub .rh-item{padding:22px}}
 </style>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="dra-header"><div class="dra-header-inner"><a class="brand" href="/"><img src="/assets/dra-nav-logo.webp" alt="DRA Tax &amp; Financial Solutions logo" decoding="async"></a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/tax-services.html">Tax Services</a><a href="/about.html">Our Story</a><a href="/resources.html" aria-current="page">Resources</a></nav><a class="dra-contact" href="/contact.html">Let’s Talk</a></div></header>
 <main id="main" class="resource-hub">
-<section class="rh-hero"><div class="rh-kicker">Down Right Ausome Wealth • Learn &amp; Grow</div><h1>Resources to Help You Move Forward</h1><p>Explore practical tools, educational guides, and information to support your credit, tax, financial, homeownership, and business goals.</p></section>
+<section class="rh-hero"><a class="rh-hero-link" href="#resource-library" aria-label="Explore resources"><img src="/assets/resource-hub-hero.webp" alt="Down Right Ausome Wealth Digital Resource Shop. Explore Resources." width="600" height="338" fetchpriority="high" decoding="async"></a></section>
 <section class="rh-intro"><h2>Explore the Resource Library</h2><p>Start with the topic that matters to you. Browse educational resources and find the next step that fits your goals.</p></section>
-<section class="rh-grid" aria-label="Resource categories">
+<section class="rh-grid" id="resource-library" aria-label="Resource categories">
 <article class="rh-item"><span class="rh-num">01 / CREDIT</span><h3>Credit Repair Guides</h3><p>Educational e-books and guides to help you better understand credit reports, credit habits, and potential next steps.</p><a class="rh-link" href="/credit-resources.html">Explore Credit Resources →</a></article>
 <article class="rh-item"><span class="rh-num">02 / DIY TOOLS</span><h3>DIY Credit Tools</h3><p>Explore self-guided credit education, tools, and the existing DIY credit repair program.</p><a class="rh-link" href="/credit-resources.html">Explore DIY Credit Tools →</a></article>
 <article class="rh-item"><span class="rh-num">03 / TAX EDUCATION</span><h3>Tax Education</h3><p>Find tax preparation information and trusted educational answers to common federal tax questions.</p><a class="rh-link" href="https://www.irs.gov/faqs" target="_blank" rel="noopener">Visit IRS Tax FAQs →</a></article>
