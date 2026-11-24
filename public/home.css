@@ -698,3 +698,141 @@
   .value-item h2{font-size:18px}
   .value-item p{font-size:12.5px;margin-top:7px}
 }
+
+
+/* Focused homepage refinements: compact Section 3 and align Section 4
+   with Deneshia's existing charcoal portrait artwork. */
+.services{
+  padding:34px 0 38px;
+}
+.services .services-grid{
+  grid-template-columns:minmax(250px,.78fr) minmax(0,1.55fr);
+  gap:clamp(26px,3.5vw,52px);
+  align-items:center;
+}
+.services .service-intro h2{
+  font-size:clamp(30px,2.5vw,39px);
+  line-height:1.08;
+}
+.services .service-intro p{
+  margin-top:14px;
+  font-size:14px;
+  line-height:1.5;
+  max-width:340px;
+}
+.services .service-row,
+.services .service-row:first-child,
+.services .service-row:last-child{
+  grid-template-columns:66px minmax(0,1fr) 22px;
+  gap:15px;
+  padding:12px 0;
+  min-height:0;
+}
+.services .service-row:first-child{padding-top:0}
+.services .service-row:last-child{padding-bottom:0}
+.services .service-visual{
+  width:58px;
+  height:48px;
+}
+.services .service-row h3{
+  font-size:clamp(21px,1.7vw,26px);
+  line-height:1.15;
+}
+.services .service-content p{
+  margin-top:5px;
+  font-size:12.5px;
+  line-height:1.45;
+}
+.services .service-arrow{font-size:21px}
+
+/* Section 4: preserve existing layout, copy and portrait asset.
+   Match the charcoal photographic background; no photo effects or overlays. */
+.story{
+  background:#242426;
+  border-top:1px solid rgba(198,162,95,.42);
+}
+.story-inner{
+  grid-template-columns:54% 46%;
+  min-height:450px;
+  align-items:center;
+}
+.story-copy{
+  padding:44px 0;
+}
+.story-copy .eyebrow{
+  color:#d6b783;
+  font:700 11px/1.5 "Raleway",Arial,sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.story-copy h2{
+  max-width:560px;
+  color:#f8f6f1;
+  font:600 clamp(38px,3.55vw,53px)/1.12 "Noto Serif Display",Georgia,serif;
+  letter-spacing:-.025em;
+}
+.story-copy h2 em{color:#d6b783}
+.story-copy p:not(.story-note){
+  max-width:490px;
+  margin-top:17px;
+  color:#eeeae3;
+  font:500 14px/1.65 "Raleway",Arial,sans-serif;
+}
+.story-copy .story-note{
+  margin-top:15px;
+  color:#d6b783;
+  font:italic 500 23px/1.25 "Noto Serif Display",Georgia,serif;
+}
+.story-copy .button{
+  margin-top:20px;
+  padding:11px 18px;
+  min-height:42px;
+  border-color:#d6b783;
+  color:#f8f6f1;
+  font:600 12px/1.3 "Raleway",Arial,sans-serif;
+}
+.story-photo{
+  height:430px;
+  width:100%;
+  object-fit:contain;
+  object-position:center bottom;
+}
+@media(max-width:900px){
+  .services{padding:30px 0 34px}
+  .services .services-grid{gap:22px}
+  .services .service-row,
+  .services .service-row:first-child,
+  .services .service-row:last-child{
+    grid-template-columns:58px minmax(0,1fr) 20px;
+    gap:12px;
+    padding:11px 0;
+  }
+  .services .service-visual{width:52px;height:44px}
+  .story-inner{min-height:390px}
+  .story-copy{padding:36px 0}
+  .story-photo{height:370px}
+}
+@media(max-width:600px){
+  .services{padding:26px 0 30px}
+  .services .services-grid{gap:17px}
+  .services .service-intro h2{font-size:29px}
+  .services .service-intro p{font-size:12.5px;margin-top:10px}
+  .services .service-row,
+  .services .service-row:first-child,
+  .services .service-row:last-child{
+    grid-template-columns:46px minmax(0,1fr) 18px;
+    gap:9px;
+    padding:10px 0;
+  }
+  .services .service-visual{width:42px;height:38px}
+  .services .service-row h3{font-size:18px}
+  .services .service-content p{font-size:11px;line-height:1.4;margin-left:0}
+  .services .service-arrow{font-size:18px}
+  .story-inner{grid-template-columns:1fr;min-height:0}
+  .story-copy{padding:36px 0 22px}
+  .story-copy h2{font-size:36px}
+  .story-copy p:not(.story-note){font-size:13px}
+  .story-copy .story-note{font-size:21px}
+  .story-scene{position:relative;inset:auto;display:block;z-index:1}
+  .story-photo{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;object-position:center bottom}
+}
