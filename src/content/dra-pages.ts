@@ -67,7 +67,7 @@ export const pages: Record<string, { title: string; html: string; css: string }>
     css: "/styles.css",
     html: `<style>
 .resource-hub{background:#F8F6F1;color:#001B3D}
-.resource-hub .rh-hero{padding:0;background:#F8F6F1;line-height:0}.resource-hub .rh-hero-link{display:block;width:100%;line-height:0}.resource-hub .rh-hero img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center}
+.resource-hub .rh-hero{padding:0;background:#F8F6F1;line-height:0}.resource-hub .rh-hero-link{display:block;width:100%;max-width:1671px;margin:0 auto;line-height:0}.resource-hub .rh-hero img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center}
 .resource-hub .rh-kicker{color:#D6C08F;letter-spacing:2.5px;text-transform:uppercase;font-size:12px;font-weight:700}
 .resource-hub .rh-hero h1{font-family:"Noto Serif Display",Georgia,serif;color:#fff;font-size:clamp(38px,5vw,60px);line-height:1.08;margin:16px auto;max-width:900px}
 .resource-hub .rh-hero p{font-family:Raleway,Arial,sans-serif;color:#F8F6F1;font-size:17px;line-height:1.7;max-width:720px;margin:0 auto}
