@@ -838,3 +838,44 @@
   .story-scene{position:absolute;inset:0;display:block;z-index:1}
   .story-photo{display:block;width:100%;height:auto;max-height:440px;object-fit:cover;object-view-box:inset(0 10% 0 10%);object-position:65% 44%}
 }
+
+/* Seamless transition refinements (Nov 2026):
+   1. Resource Library — reframe the background image so the tops of the
+      HOMEBUYER GUIDE and CREDIT books read with breathing room (not clipped).
+   2. For Future Tax Professionals — thin gold divider between the left
+      headline column and the right description/button column.
+   3. Balanced 80px vertical padding so the sandstone resource band, the
+      ivory tax-training band, and the dark navy closing CTA flow together;
+      both sections already share the same .shell max-width and left/right
+      padding, so only the vertical rhythm is harmonized here. */
+
+/* 1. Resource Library image framing (desktop/tablet absolute cover scene).
+      The <=560px mobile reflow keeps its own object-position:right bottom. */
+@media(min-width:561px){
+  .resource-visual{
+    object-fit:cover;
+    object-position:75% center;
+  }
+}
+
+/* 2. Tax-training column divider between headline and description/button. */
+.training-info{
+  border-left:1px solid rgba(184,155,94,0.35);
+}
+
+/* 3. Balanced vertical rhythm shared by both bands. */
+.resource-band{padding:80px 0}
+.training{padding:80px 0}
+/* The .resource-inner flex-centers its content, so the earlier per-copy
+   vertical padding is redundant once the band carries the rhythm. */
+@media(min-width:561px){
+  .resource-copy{padding:0}
+}
+@media(max-width:900px){
+  .resource-band{padding:56px 0}
+  .training{padding:56px 0}
+}
+@media(max-width:600px){
+  .resource-band{padding:44px 0}
+  .training{padding:44px 0}
+}
