@@ -65,7 +65,7 @@ export const pages: Record<string, { title: string; html: string; css: string }>
   resources: {
     title: "Digital Resource Hub | Down Right Ausome Wealth",
     css: "/styles.css",
-    html: '<style>
+    html: `<style>
 .resource-hub{background:#F8F6F1;color:#001B3D}
 .resource-hub .rh-hero{padding:76px 22px 68px;background:#001B3D;color:#fff;text-align:center}
 .resource-hub .rh-kicker{color:#D6C08F;letter-spacing:2.5px;text-transform:uppercase;font-size:12px;font-weight:700}
@@ -100,7 +100,7 @@ export const pages: Record<string, { title: string; html: string; css: string }>
 </section>
 <div class="rh-note"><strong>Digital products:</strong> Downloadable guides, workbooks, and paid resources will be added as they are finalized. Product availability and purchase options will be displayed when each resource is ready.</div>
 </main>
-<footer class="footer-compact"><div class="footer-compact-inner"><p class="footer-contact"><a href="tel:4705161141">470-516-1141</a><a href="mailto:admin@downrightausomewealth.com">admin@downrightausomewealth.com</a><span>3205 Woodward Crossing Blvd, Suite F, Buford, GA</span></p><div class="footer-legal"><span>© 2026 Down Right Ausome Wealth. All rights reserved.</span><span class="footer-legal-links"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms-of-service.html">Terms of Service</a><a href="/disclaimer.html">Disclaimer</a></span></div></div></footer>'
+<footer class="footer-compact"><div class="footer-compact-inner"><p class="footer-contact"><a href="tel:4705161141">470-516-1141</a><a href="mailto:admin@downrightausomewealth.com">admin@downrightausomewealth.com</a><span>3205 Woodward Crossing Blvd, Suite F, Buford, GA</span></p><div class="footer-legal"><span>© 2026 Down Right Ausome Wealth. All rights reserved.</span><span class="footer-legal-links"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms-of-service.html">Terms of Service</a><a href="/disclaimer.html">Disclaimer</a></span></div></div></footer>`
   },
   "credit-resources": {
     title: "Financial Resources | Down Right Ausome Wealth",
