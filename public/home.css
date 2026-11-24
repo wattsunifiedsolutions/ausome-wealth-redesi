@@ -210,3 +210,59 @@
 @media(max-width:1100px){.hero-copy{max-width:52%}.hero h1{font-size:clamp(43px,5.1vw,60px)}}
 @media(max-width:760px){.hero-copy{width:100%;max-width:100%}.hero h1{font-size:clamp(39px,7vw,54px)}.hero-copy p{font-size:17px;max-width:460px}.hero-actions{gap:14px}}
 @media(max-width:560px){.hero h1{font-size:clamp(36px,9vw,49px)}.hero-copy p{font-size:16px;margin-top:20px}.hero-actions .button{font-size:14px;padding:11px 15px}.hero-actions .text-link{font-size:14px}}
+
+/* Premium homepage refresh, November 2026.
+   Only below-the-hero sections are refreshed; the client hero photograph,
+   hero image placement, Meet Deneshia portrait, and resource book imagery remain intact. */
+.services{background:#f6f2e9;color:#001b3d;padding:74px 0 82px}
+.services-grid{display:block;border:0;padding:0}
+.service-intro{display:block;text-align:center;border:0;padding:0 0 36px;max-width:740px;margin:0 auto}
+.service-intro .eyebrow{color:#9a7842;letter-spacing:2.8px}
+.service-intro .small-rule{margin:15px auto 24px}
+.service-intro h2{font-family:"Noto Serif Display",Georgia,serif;font-size:clamp(35px,3.4vw,53px);line-height:1.14;color:#001b3d}
+.service-intro h2 br{display:none}
+.service-intro p{max-width:560px;margin:18px auto 0;font:500 16px/1.6 "Raleway",Arial,sans-serif;color:#445267}
+.service-intro p br{display:none}
+.service-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.service-row,.service-row:first-child,.service-row:last-child{display:flex;flex-direction:column;gap:0;padding:30px 28px 32px;border:1px solid #e4d9c8;background:#fff;min-height:280px;text-decoration:none;box-shadow:0 10px 26px rgba(0,27,61,.05);transition:transform .2s,box-shadow .2s}
+.service-row:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,27,61,.10)}
+.service-num{display:block;border:0;padding:0 0 18px;color:#b2986a;font:italic 500 30px/1 "Noto Serif Display",Georgia,serif}
+.service-row .eyebrow{color:#9b7843;font:700 11px/1.45 "Raleway",Arial,sans-serif;letter-spacing:2px;margin-bottom:12px}
+.service-row h3{font-family:"Noto Serif Display",Georgia,serif;font-size:clamp(25px,2.4vw,36px);line-height:1.13;color:#001b3d}
+.service-row p{color:#445267;font:500 14px/1.65 "Raleway",Arial,sans-serif;margin-top:17px}
+.service-row:hover h3{color:#92713f}
+.story{background:#07182e;border-top:0}
+.story-copy .eyebrow{color:#d6b783}
+.story-copy h2{font-family:"Noto Serif Display",Georgia,serif;font-size:clamp(39px,4vw,59px);line-height:1.13}
+.story-copy h2 em{color:#d6b783}
+.story-copy p:not(.story-note){font:500 16px/1.7 "Raleway",Arial,sans-serif;max-width:490px}
+.story-copy .button{font-family:"Raleway",Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:.015em}
+.resource-band{background:#efe4cf}
+.resource-copy h2{font-family:"Noto Serif Display",Georgia,serif;font-size:clamp(37px,3.5vw,53px);color:#001b3d}
+.resource-copy p{color:#344559;font:500 16px/1.6 "Raleway",Arial,sans-serif}
+.resource-copy .button{font:700 14px/1.3 "Raleway",Arial,sans-serif;padding:13px 23px}
+.training{background:#fff;color:#001b3d;padding:76px 0}
+.training .eyebrow{color:#9b7843}
+.training h2{font-family:"Noto Serif Display",Georgia,serif;font-size:clamp(34px,3.2vw,49px);line-height:1.13}
+.training-info p{font:500 16px/1.65 "Raleway",Arial,sans-serif;color:#445267}
+.training-info .button{font:700 14px/1.3 "Raleway",Arial,sans-serif}
+.closing h2{font-family:"Noto Serif Display",Georgia,serif}
+@media(max-width:900px){
+ .services{padding:52px 0 58px}
+ .service-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+ .service-row,.service-row:first-child,.service-row:last-child{min-height:250px;padding:25px 22px}
+ .story-copy h2{font-size:clamp(35px,5vw,47px)}
+}
+@media(max-width:560px){
+ .services{padding:43px 0 46px}
+ .service-intro{padding-bottom:26px}
+ .service-intro h2{font-size:36px}
+ .service-intro p{font-size:15px}
+ .service-list{grid-template-columns:1fr;gap:14px}
+ .service-row,.service-row:first-child,.service-row:last-child{min-height:auto;padding:23px 24px 25px}
+ .service-row h3{font-size:30px}
+ .story-copy h2{font-size:41px}
+ .resource-copy h2{font-size:38px}
+ .training{padding:46px 0}
+ .training h2{font-size:35px}
+}
