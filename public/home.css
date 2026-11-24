@@ -316,151 +316,139 @@
 }
 
 
-/* Second homepage section: editorial service pathways, no washes or card stacks. */
+/* Homepage service section: open ivory editorial layout.
+   Keep the hero and all original photos untouched. */
 .services{
-  background:#0b192e;
-  color:#f4f0e9;
-  padding:clamp(58px,6vw,92px) 0;
+  background:#f8f6f1;
+  color:#001b3d;
+  padding:clamp(56px,5.6vw,86px) 0;
 }
 .services .services-grid{
   display:grid;
-  grid-template-columns:minmax(265px,.82fr) minmax(0,1.42fr);
-  gap:clamp(38px,5.5vw,92px);
-  align-items:start;
-  padding:0;
+  grid-template-columns:minmax(290px,.9fr) minmax(0,1.5fr);
+  gap:clamp(36px,5vw,84px);
+  align-items:center;
   border:0;
+  padding:0;
 }
 .services .service-intro{
   display:block;
   text-align:left;
   max-width:none;
   margin:0;
-  padding:8px clamp(26px,3.2vw,52px) 0 0;
+  padding:0;
   border:0;
-  border-right:1px solid rgba(214,183,131,.45);
 }
 .services .service-intro .eyebrow{
-  color:#d6b783;
   font:700 11px/1.6 "Raleway",Arial,sans-serif;
-  letter-spacing:2.3px;
+  letter-spacing:2px;
+  color:#99743b;
 }
 .services .service-intro .small-rule{
-  margin:15px 0 26px;
+  margin:15px 0 23px;
   width:48px;
-  background:#d6b783;
+  background:#b18d56;
 }
 .services .service-intro h2{
-  font-family:"Noto Serif Display",Georgia,serif;
-  font-size:clamp(37px,3.35vw,53px);
-  line-height:1.16;
-  letter-spacing:-.03em;
-  color:#fff;
+  font:600 clamp(34px,3vw,48px)/1.15 "Noto Serif Display",Georgia,serif;
+  letter-spacing:-.025em;
+  color:#001b3d;
+  max-width:430px;
 }
-.services .service-intro h2 br{display:initial}
+.services .service-intro h2 br{display:none}
 .services .service-intro p{
-  max-width:310px;
-  margin:22px 0 0;
-  color:#e5e2dd;
   font:500 15px/1.65 "Raleway",Arial,sans-serif;
+  color:#3e4a56;
+  margin:20px 0 0;
+  max-width:370px;
 }
-.services .service-intro p br{display:initial}
-.services .service-list{
-  display:block;
-  width:100%;
-}
+.services .service-intro p br{display:none}
+.services .service-list{display:block;width:100%}
 .services .service-row,
 .services .service-row:first-child,
 .services .service-row:last-child{
   display:grid;
-  grid-template-columns:64px minmax(0,1fr);
-  gap:19px;
+  grid-template-columns:50px minmax(0,1fr);
+  align-items:start;
+  gap:18px;
   min-height:0;
   position:relative;
-  padding:22px 35px 24px 0;
+  padding:24px 36px 25px 0;
+  margin:0;
   background:transparent;
+  color:#001b3d;
   border:0;
-  border-bottom:1px solid rgba(214,183,131,.46);
+  border-bottom:1px solid #d7c6a9;
   box-shadow:none;
-  color:#f4f0e9;
   transform:none;
   transition:color .18s ease;
 }
 .services .service-row:first-child{padding-top:0}
 .services .service-row:last-child{border-bottom:0;padding-bottom:0}
-.services .service-row:hover{
-  box-shadow:none;
-  transform:none;
-}
+.services .service-row:hover{transform:none;box-shadow:none}
 .services .service-num{
-  display:block;
-  padding:8px 15px 0 0;
   border:0;
-  border-right:1px solid rgba(214,183,131,.4);
-  color:#d6b783;
-  font:italic 500 31px/1 "Noto Serif Display",Georgia,serif;
+  padding:3px 0 0;
+  color:#a47d43;
+  font:italic 500 28px/1.1 "Noto Serif Display",Georgia,serif;
 }
 .services .service-row .eyebrow{
-  color:#d6b783;
+  color:#926e37;
   font:700 10px/1.5 "Raleway",Arial,sans-serif;
-  letter-spacing:2.1px;
-  margin-bottom:8px;
+  letter-spacing:1.8px;
+  margin-bottom:7px;
 }
 .services .service-row h3{
-  font-family:"Noto Serif Display",Georgia,serif;
-  font-size:clamp(26px,2.5vw,37px);
-  line-height:1.15;
-  color:#fff;
-  padding-right:20px;
+  font:600 clamp(24px,2.25vw,34px)/1.16 "Noto Serif Display",Georgia,serif;
+  color:#001b3d;
+  padding-right:8px;
 }
 .services .service-row p{
-  color:#e5e2dd;
+  max-width:510px;
+  color:#45515b;
   font:500 14px/1.55 "Raleway",Arial,sans-serif;
-  max-width:530px;
-  margin-top:10px;
+  margin-top:9px;
 }
+.services .service-row:hover h3{color:#896633}
 .services .service-row::after{
   content:"↗";
   position:absolute;
-  top:28px;
-  right:2px;
-  color:#d6b783;
-  font-size:22px;
-  line-height:1;
+  top:26px;
+  right:3px;
+  color:#a47d43;
+  font:400 21px/1 "Raleway",Arial,sans-serif;
   transition:transform .18s ease;
 }
-.services .service-row:first-child::after{top:5px}
+.services .service-row:first-child::after{top:3px}
 .services .service-row:hover::after{transform:translate(3px,-3px)}
-.services .service-row:focus-visible{
-  outline:2px solid #d6b783;
-  outline-offset:6px;
-}
+.services .service-row:focus-visible{outline:2px solid #a47d43;outline-offset:5px}
 @media(max-width:800px){
-  .services .services-grid{grid-template-columns:1fr;gap:34px}
-  .services .service-intro{border-right:0;border-bottom:1px solid rgba(214,183,131,.4);padding:0 0 28px}
-  .services .service-intro h2{font-size:clamp(37px,5vw,47px)}
-  .services .service-intro p{max-width:520px}
+  .services .services-grid{grid-template-columns:1fr;gap:30px}
+  .services .service-intro{padding:0 0 22px;border-bottom:1px solid #d7c6a9}
+  .services .service-intro h2{font-size:clamp(34px,5.5vw,43px)}
+  .services .service-intro p{max-width:550px}
 }
 @media(max-width:560px){
-  .services{padding:45px 0 52px}
-  .services .services-grid{gap:25px}
+  .services{padding:44px 0 50px}
+  .services .services-grid{gap:18px}
   .services .service-intro{padding-bottom:23px}
-  .services .service-intro h2{font-size:38px}
+  .services .service-intro h2{font-size:34px;line-height:1.17}
   .services .service-intro p{font-size:14px;margin-top:15px}
   .services .service-row,
   .services .service-row:first-child,
   .services .service-row:last-child{
-    grid-template-columns:45px minmax(0,1fr);
+    grid-template-columns:34px minmax(0,1fr);
     gap:12px;
-    padding:19px 23px 20px 0;
+    padding:20px 26px 22px 0;
   }
   .services .service-row:first-child{padding-top:0}
   .services .service-row:last-child{padding-bottom:0}
-  .services .service-num{font-size:25px;padding:7px 8px 0 0}
-  .services .service-row h3{font-size:clamp(25px,7vw,32px)}
-  .services .service-row p{font-size:13px;line-height:1.55}
-  .services .service-row .eyebrow{font-size:9px;letter-spacing:1.5px}
-  .services .service-row::after{right:0;top:23px;font-size:18px}
-  .services .service-row:first-child::after{top:4px}
+  .services .service-num{font-size:23px;padding-top:4px}
+  .services .service-row .eyebrow{font-size:9px;letter-spacing:1.2px}
+  .services .service-row h3{font-size:26px}
+  .services .service-row p{font-size:13px}
+  .services .service-row::after{right:0;top:24px;font-size:18px}
+  .services .service-row:first-child::after{top:3px}
 }
 @media(prefers-reduced-motion:reduce){
   .services .service-row::after{transition:none}
