@@ -879,3 +879,10 @@
   .resource-band{padding:44px 0}
   .training{padding:44px 0}
 }
+
+@media(max-width:900px){
+  .services .services-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:560px){
+  .training-info .button{max-width:100%;white-space:normal;text-align:center}
+}
