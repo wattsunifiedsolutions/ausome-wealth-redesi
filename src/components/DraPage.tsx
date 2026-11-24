@@ -65,23 +65,30 @@ export function DraPage({ name }: { name: string }) {
     const root = pageRef.current;
     if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const targets = root.querySelectorAll<HTMLElement>(
-      "main > section, main > .band, main > .trust-strip, main .card, main .service-card, main .resource-card, main .rh-item, main .pathway, main .step, main .price-card, main .testimonial, main .split"
+      "main > section, main > .band, main > .trust-strip, main .card, main .service-card, main .resource-card, main .rh-item, main .pathway, main .step, main .price-card, main .testimonial, main .split",
     );
     targets.forEach((element) => {
-      element.dataset.draReveal = element.matches(".card, .service-card, .resource-card, .rh-item, .pathway, .step, .price-card, .testimonial") ? "card" : "section";
+      element.dataset["draReveal"] = element.matches(
+        ".card, .service-card, .resource-card, .rh-item, .pathway, .step, .price-card, .testimonial",
+      )
+        ? "card"
+        : "section";
     });
     if (!("IntersectionObserver" in window)) {
       targets.forEach((element) => element.classList.add("dra-in-view"));
       return;
     }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("dra-in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -48px 0px" });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("dra-in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -48px 0px" },
+    );
     targets.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, [name]);
