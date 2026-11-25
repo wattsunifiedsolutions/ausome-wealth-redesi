@@ -124,7 +124,7 @@ html{scroll-behavior:smooth}
     </article>
     <article class=\"dra-client-quote\">
       <span class=\"dra-client-mark\" aria-hidden=\"true\">“</span>
-      <blockquote>I had someone working on my credit for 2 years and barely did anything! Down Right Ausome Wealth has been working on my credit for 2 months and got EVERYTHING deleted! Please go to them you won't regret it!</blockquote>
+      <blockquote>I had someone working on my credit for 2 years and barely did anything! Down Right Ausome Wealth has been working on my credit for 2 months and got EVERYTHING deleted! Please go to them you won\'t regret it!</blockquote>
       <div class=\"dra-client-name\">Carlos R.</div>
     </article>
     <article class=\"dra-client-quote\">
