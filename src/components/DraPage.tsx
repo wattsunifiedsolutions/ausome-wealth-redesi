@@ -105,6 +105,8 @@ export function DraPage({ name }: { name: string }) {
     const numEl = gauge.querySelector<SVGTextElement>("[data-fico-num]");
     const rangeEl = gauge.querySelector<SVGTextElement>("[data-fico-range]");
     const pill = gauge.querySelector<HTMLElement>("[data-fico-pill]");
+    const statScore = gauge.querySelector<HTMLElement>("[data-fico-stat-score]");
+    const statTier = gauge.querySelector<HTMLElement>("[data-fico-stat-tier]");
     const ticksGroup = gauge.querySelector<SVGGElement>(".fico-ticks");
     if (!slider || !needle || !numEl || !pill) return;
 
@@ -116,12 +118,17 @@ export function DraPage({ name }: { name: string }) {
       return -90 + t * 180;
     };
 
-    const tiers: { max: number; label: string; color: string }[] = [
-      { max: 579, label: "POOR \u2022 300\u2013579", color: "#DC2626" },
-      { max: 669, label: "FAIR \u2022 580\u2013669", color: "#F59E0B" },
-      { max: 739, label: "GOOD \u2022 670\u2013739", color: "#10B981" },
-      { max: 799, label: "VERY GOOD \u2022 740\u2013799", color: "#059669" },
-      { max: 850, label: "EXCEPTIONAL \u2022 800\u2013850", color: "#047857" },
+    const tiers: { max: number; label: string; short: string; color: string }[] = [
+      { max: 579, label: "POOR \u2022 300\u2013579", short: "Poor", color: "#DC2626" },
+      { max: 669, label: "FAIR \u2022 580\u2013669", short: "Fair", color: "#F59E0B" },
+      { max: 739, label: "GOOD \u2022 670\u2013739", short: "Good", color: "#10B981" },
+      { max: 799, label: "VERY GOOD \u2022 740\u2013799", short: "Very Good", color: "#059669" },
+      {
+        max: 850,
+        label: "EXCEPTIONAL \u2022 800\u2013850",
+        short: "Exceptional",
+        color: "#047857",
+      },
     ];
     const tierFor = (score: number) =>
       tiers.find((t) => score <= t.max) ?? tiers[tiers.length - 1]!;
@@ -156,6 +163,8 @@ export function DraPage({ name }: { name: string }) {
       const tier = tierFor(s);
       pill.textContent = tier.label;
       pill.style.background = tier.color;
+      if (statScore) statScore.textContent = String(s);
+      if (statTier) statTier.textContent = tier.short;
     };
 
     update(Number(slider.value));
