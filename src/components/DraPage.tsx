@@ -155,9 +155,20 @@ export function DraPage({ name }: { name: string }) {
       ticksGroup.innerHTML = ticks.join("");
     }
 
+    let lastScore = Number(slider.value);
+    const pulse = (el: Element | null, cls: string) => {
+      if (!el) return;
+      el.classList.remove(cls);
+      // Force reflow so the animation restarts on rapid slides.
+      void (el as HTMLElement).offsetWidth;
+      el.classList.add(cls);
+    };
+
     const update = (score: number) => {
       const s = Math.max(MIN, Math.min(MAX, Math.round(score)));
-      needle.style.transform = `rotate(${angleFor(s).toFixed(2)}deg)`;
+      const deg = angleFor(s);
+      needle.style.setProperty("--dra-needle-deg", `${deg.toFixed(2)}deg`);
+      needle.style.transform = `rotate(${deg.toFixed(2)}deg)`;
       numEl.textContent = String(s);
       if (rangeEl) rangeEl.textContent = `${MIN}\u2013${MAX}`;
       const tier = tierFor(s);
@@ -165,9 +176,21 @@ export function DraPage({ name }: { name: string }) {
       pill.style.background = tier.color;
       if (statScore) statScore.textContent = String(s);
       if (statTier) statTier.textContent = tier.short;
+
+      // Micro-animations: only fire when the rounded score actually changes,
+      // so dragging within the same integer stays calm.
+      if (s !== lastScore) {
+        lastScore = s;
+        pulse(needle, "dra-needle-bounce");
+        pulse(numEl, "dra-num-pop");
+        pulse(pill, "dra-pill-pop");
+      }
     };
 
     update(Number(slider.value));
+    slider.addEventListener("pointerdown", () => slider.classList.add("dra-slider-active"));
+    slider.addEventListener("pointerup", () => slider.classList.remove("dra-slider-active"));
+    slider.addEventListener("blur", () => slider.classList.remove("dra-slider-active"));
     slider.addEventListener("input", () => update(Number(slider.value)));
   }, [name]);
 
