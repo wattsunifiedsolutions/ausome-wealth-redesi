@@ -126,12 +126,13 @@ export function DraPage({ name }: { name: string }) {
     const tierFor = (score: number) =>
       tiers.find((t) => score <= t.max) ?? tiers[tiers.length - 1]!;
 
-    // Draw subtle tick marks along the inner radius.
+    // Draw subtle tick marks along the inner radius (geometry matches the
+    // 260x150 gauge: pivot at 130,130; arc radius ~100).
     if (ticksGroup) {
-      const cx = 160;
-      const cy = 185;
-      const rOuter = 128;
-      const rInner = 116;
+      const cx = 130;
+      const cy = 130;
+      const rOuter = 92;
+      const rInner = 82;
       const ticks: string[] = [];
       for (let i = 0; i <= 10; i++) {
         const t = i / 10;
