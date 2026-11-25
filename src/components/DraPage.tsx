@@ -93,6 +93,74 @@ export function DraPage({ name }: { name: string }) {
     return () => observer.disconnect();
   }, [name]);
 
+  // FICO-style interactive credit score gauge wiring (credit-resources page).
+  useEffect(() => {
+    const root = pageRef.current;
+    if (!root) return;
+    const gauge = root.querySelector<HTMLElement>("[data-fico-gauge]");
+    if (!gauge) return;
+
+    const slider = gauge.querySelector<HTMLInputElement>("[data-fico-slider]");
+    const needle = gauge.querySelector<SVGGElement>("[data-fico-needle]");
+    const numEl = gauge.querySelector<SVGTextElement>("[data-fico-num]");
+    const rangeEl = gauge.querySelector<SVGTextElement>("[data-fico-range]");
+    const pill = gauge.querySelector<HTMLElement>("[data-fico-pill]");
+    const ticksGroup = gauge.querySelector<SVGGElement>(".fico-ticks");
+    if (!slider || !needle || !numEl || !pill) return;
+
+    const MIN = 300;
+    const MAX = 850;
+    // Needle sweeps from -90deg (left, 300) to +90deg (right, 850).
+    const angleFor = (score: number) => {
+      const t = (score - MIN) / (MAX - MIN);
+      return -90 + t * 180;
+    };
+
+    const tiers: { max: number; label: string; color: string }[] = [
+      { max: 579, label: "POOR \u2022 300\u2013579", color: "#DC2626" },
+      { max: 669, label: "FAIR \u2022 580\u2013669", color: "#F59E0B" },
+      { max: 739, label: "GOOD \u2022 670\u2013739", color: "#10B981" },
+      { max: 799, label: "VERY GOOD \u2022 740\u2013799", color: "#059669" },
+      { max: 850, label: "EXCEPTIONAL \u2022 800\u2013850", color: "#047857" },
+    ];
+    const tierFor = (score: number) =>
+      tiers.find((t) => score <= t.max) ?? tiers[tiers.length - 1]!;
+
+    // Draw subtle tick marks along the inner radius.
+    if (ticksGroup) {
+      const cx = 160;
+      const cy = 185;
+      const rOuter = 128;
+      const rInner = 116;
+      const ticks: string[] = [];
+      for (let i = 0; i <= 10; i++) {
+        const t = i / 10;
+        const ang = (-90 + t * 180) * (Math.PI / 180);
+        const x1 = cx + rOuter * Math.cos(ang);
+        const y1 = cy + rOuter * Math.sin(ang);
+        const x2 = cx + rInner * Math.cos(ang);
+        const y2 = cy + rInner * Math.sin(ang);
+        ticks.push(
+          `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`,
+        );
+      }
+      ticksGroup.innerHTML = ticks.join("");
+    }
+
+    const update = (score: number) => {
+      const s = Math.max(MIN, Math.min(MAX, Math.round(score)));
+      needle.style.transform = `rotate(${angleFor(s).toFixed(2)}deg)`;
+      numEl.textContent = String(s);
+      if (rangeEl) rangeEl.textContent = `${MIN}\u2013${MAX}`;
+      const tier = tierFor(s);
+      pill.textContent = tier.label;
+      pill.style.background = tier.color;
+    };
+
+    update(Number(slider.value));
+    slider.addEventListener("input", () => update(Number(slider.value)));
+  }, [name]);
+
   return (
     <div
       ref={pageRef}
