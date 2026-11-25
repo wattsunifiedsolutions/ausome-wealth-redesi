@@ -200,6 +200,80 @@ export function DraPage({ name }: { name: string }) {
       className="dra-motion-page"
       onSubmit={(event) => {
         event.preventDefault();
+        const form = event.target as HTMLFormElement;
+        const formDataObj = new FormData(form);
+
+        const getTrackingSessionId = () => {
+          try {
+            const sid = document.cookie.match(/(?:^|;\s*)__vibe_sid=([0-9a-f-]{36})(?:;|$)/)?.[1];
+            if (sid) return sid;
+          } catch {}
+          return crypto.randomUUID();
+        };
+
+        const postTrackingEvent = (
+          trackingPayload: Record<string, unknown> & {
+            formData: Record<string, unknown>;
+            formLabels: Record<string, string>;
+          },
+        ) => {
+          const body = new FormData();
+          body.append("event", JSON.stringify(trackingPayload));
+          fetch("https://backend.leadconnectorhq.com/external-tracking/events", {
+            method: "POST",
+            headers: { version: "2021-07-28" },
+            body,
+          }).catch(() => {});
+        };
+
+        const first_name = (
+          formDataObj.get("first_name") ||
+          formDataObj.get("name") ||
+          ""
+        ).toString();
+        const email = (formDataObj.get("email") || "").toString();
+        const phone = (formDataObj.get("phone") || "").toString();
+        const calendar_notes = (
+          formDataObj.get("message") ||
+          formDataObj.get("notes") ||
+          ""
+        ).toString();
+
+        if (email || phone || first_name) {
+          const trackingPayload = {
+            type: "external_form_submission",
+            timestamp: Date.now(),
+            formId: "contact-form",
+            formData: {
+              ...(first_name && { first_name }),
+              ...(email && { email }),
+              ...(phone && { phone }),
+              ...(calendar_notes && { calendar_notes }),
+            },
+            formLabels: {
+              ...(first_name && { first_name: "Name" }),
+              ...(email && { email: "Email" }),
+              ...(phone && { phone: "Phone" }),
+              ...(calendar_notes && { calendar_notes: "Message" }),
+            },
+            url: window.location.href,
+            title: document.title,
+            path: window.location.pathname,
+            userAgent: navigator.userAgent,
+            trackingId: "tk_a75f9e2f1ffc4de69f6a26aecf1b15ec",
+            locationId: "BCoT0DBVqbMpl2fQJv1y",
+            projectId: "1795100135767119492",
+            sessionId: getTrackingSessionId(),
+            properties: {
+              deviceType: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "mobile" : "desktop",
+              source: "ai_studio",
+              projectId: "1795100135767119492",
+              formName: "Contact Form",
+            },
+          };
+          postTrackingEvent(trackingPayload);
+        }
+
         const notice = event.currentTarget.querySelector<HTMLElement>("#preview-notice");
         if (notice) {
           notice.style.display = "block";
