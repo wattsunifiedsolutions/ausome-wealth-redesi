@@ -28,9 +28,9 @@ const motionStyles = `
   animation: none !important;
   transform: none !important;
   clip-path: none !important;
-} to { transform: scale(1); clip-path: inset(0); } }
+}
 .dra-motion-page .hero-text h1,
-.dra-motion-page .mentor-hero h1 { animation: none !important; } to { transform: translate3d(0,0,0); } }
+.dra-motion-page .mentor-hero h1 { animation: none !important; }
 .dra-motion-page .card,
 .dra-motion-page .service-card,
 .dra-motion-page .resource-card,
