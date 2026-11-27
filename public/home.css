@@ -897,67 +897,6 @@
   .training-info .button{max-width:100%;white-space:normal;text-align:center}
 }
 
-/* Transparent-over-hero header support.
-   The fixed .dra-header overlays each hero, so heroes get top padding so the
-   headline never collides with the nav, and a subtle top dark gradient is
-   layered on light-colored heroes so the white nav text stays legible.
-   No wash, haze or overlay is added to the hero photograph itself. */
-.hero,
-.cinematic-hero,
-.hero-navy,
-.tm-hero,
-.diy-hero,
-.rh-hero,
-.about-hero { position: relative; }
+/* Solid navy header sits above the hero; heroes keep their natural top padding. */
 
-/* Top padding clears the stacked header (108px logo + 12px gap + nav row).
-   At least 240px so the nav links never overlap or touch hero headlines. */
-.hero .shell,
-.cinematic-hero .hero-text,
-.hero-navy .wrap,
-.tm-hero .tm-container,
-.diy-hero .diy-wrap,
-.rh-hero .rh-hero-inner,
-.about-hero-copy { padding-top: 240px; }
-@media(max-width:800px){
-  .hero .shell,
-  .cinematic-hero .hero-text,
-  .hero-navy .wrap,
-  .tm-hero .tm-container,
-  .diy-hero .diy-wrap,
-  .rh-hero .rh-hero-inner,
-  .about-hero-copy { padding-top: 190px; }
-}
-@media(max-width:560px){
-  .hero .shell,
-  .cinematic-hero .hero-text,
-  .hero-navy .wrap,
-  .tm-hero .tm-container,
-  .diy-hero .diy-wrap,
-  .rh-hero .rh-hero-inner,
-  .about-hero-copy { padding-top: 160px; }
-}
-
-/* Subtle top dark gradient on light-background heroes, behind the nav.
-   Navy heroes already provide contrast, so they get no shade. */
-.rh-hero::before,
-.tm-hero::before,
-.diy-hero::before,
-.about-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 260px;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(7,19,37,.58) 0%, rgba(7,19,37,.28) 55%, rgba(7,19,37,0) 100%);
-}
-@media(max-width:800px){
-  .rh-hero::before,
-  .tm-hero::before,
-  .diy-hero::before,
-  .about-hero::before { height: 200px; }
-}
 

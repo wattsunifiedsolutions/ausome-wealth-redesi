@@ -1,38 +1,26 @@
-/* Centered stacked luxury navigation — transparent over the hero, solid navy on scroll.
+/* Solid navy navigation bar — clean, professional, always readable.
    Preserve the official DRA logo asset. */
 .dra-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  z-index: 20;
   display: block;
   padding: 0;
-  /* Strong navy top-fade panel so the logo + nav stay readable over any hero
-     image while still feeling transparent toward the bottom edge. */
-  background: linear-gradient(180deg, rgba(7, 19, 37, .94) 0%, rgba(7, 19, 37, .72) 55%, rgba(7, 19, 37, .18) 88%, rgba(7, 19, 37, 0) 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: none;
-  transition: background .4s ease, border-color .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
-}
-/* Solid navy state once the user scrolls past the hero. */
-.dra-header.scrolled {
   background: #071325;
-  border-bottom-color: #d6b78340;
-  box-shadow: 0 6px 24px rgba(0, 12, 30, .28);
-  backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid rgba(214, 183, 131, 0.25);
+  box-shadow: none;
 }
 .dra-header-inner {
-  width: min(1440px, calc(100% - 48px));
+  width: min(1240px, calc(100% - 56px));
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding: 14px 0 12px;
-  transition: padding .4s ease, gap .4s ease;
 }
-.dra-header.scrolled .dra-header-inner { padding: 10px 0 10px; gap: 8px; }
 .dra-header .brand {
   display: flex;
   align-items: center;
@@ -43,20 +31,18 @@
 }
 .dra-header .brand img {
   width: auto;
-  height: 108px;
-  max-width: 240px;
+  height: 78px;
+  max-width: 200px;
   object-fit: contain;
   background: transparent;
-  transition: height .4s ease, max-width .4s ease;
 }
-.dra-header.scrolled .brand img { height: 78px; max-width: 200px; }
 .dra-header nav {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6px clamp(10px, 1.15vw, 17px);
+  gap: 6px clamp(12px, 1.4vw, 22px);
   margin: 0;
   padding: 0;
 }
@@ -67,7 +53,6 @@
   border-bottom: 1px solid transparent;
   text-decoration: none;
   white-space: nowrap;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
 }
 .dra-header nav > a:hover,
 .dra-header nav > a[aria-current="page"] {
@@ -75,23 +60,8 @@
   border-bottom-color: #d6b783;
 }
 
-/* Soft top dark vignette so white nav text stays legible over light hero
-   backgrounds while the header is still transparent. Sits behind the header. */
-.dra-hero-shade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 260px;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(7, 19, 37, .58) 0%, rgba(7, 19, 37, .28) 55%, rgba(7, 19, 37, 0) 100%);
-}
-
 @media (max-width: 800px) {
   .dra-header-inner { width: calc(100% - 36px); padding: 10px 0 10px; gap: 8px; }
-  .dra-header .brand img { height: 84px; max-width: 210px; }
-  .dra-header.scrolled .brand img { height: 60px; max-width: 160px; }
+  .dra-header .brand img { height: 64px; max-width: 170px; }
   .dra-header nav { width: 100%; justify-content: center; gap: 6px 14px; }
-  .dra-hero-shade { height: 200px; }
 }
