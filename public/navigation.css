@@ -1,13 +1,13 @@
-/* Original restrained navy navigation. Preserve the official DRA logo asset. */
-.dra-header { position: relative; z-index: 100; inset: auto; display: block; padding: 0; min-height: 0; background: #071325; border-bottom: 1px solid #d6b78340; box-shadow: none; }
-.dra-header-inner { width: min(1440px, calc(100% - 48px)); margin: auto; min-height: 80px; display: flex; align-items: center; gap: 20px; }
-.dra-header .brand { display: flex; flex: 0 0 auto; align-items: center; background: transparent; padding: 0; }
-.dra-header .brand img { width: auto; height: 68px; max-width: 170px; object-fit: contain; background: transparent; }
-.dra-header nav { display: flex; flex: 1 1 auto; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px clamp(10px, 1.15vw, 17px); margin-left: auto; padding: 0; }
+/* Centered stacked luxury navigation. Preserve the official DRA logo asset. */
+.dra-header { position: relative; z-index: 100; display: block; padding: 0; background: #071325; border-bottom: 1px solid #d6b78340; box-shadow: none; }
+.dra-header-inner { width: min(1440px, calc(100% - 48px)); margin: auto; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 0 10px; }
+.dra-header .brand { display: flex; align-items: center; justify-content: center; background: transparent; padding: 0; margin: 0; }
+.dra-header .brand img { width: auto; height: 65px; max-width: 170px; object-fit: contain; background: transparent; }
+.dra-header nav { display: flex; flex: 0 0 auto; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px clamp(10px, 1.15vw, 17px); margin: 0; padding: 0; }
 .dra-header nav > a { color: #f4f0e9; font: 600 13px/1.25 Montserrat, Arial, sans-serif; padding: 6px 0; border-bottom: 1px solid transparent; text-decoration: none; white-space: nowrap; }
 .dra-header nav > a:hover, .dra-header nav > a[aria-current="page"] { color: #d6b783; border-bottom-color: #d6b783; }
 @media (max-width: 800px) {
-  .dra-header-inner { width: calc(100% - 36px); min-height: 0; padding: 8px 0 10px; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; }
-  .dra-header .brand img { height: 57px; max-width: 148px; }
-  .dra-header nav { order: 3; width: 100%; margin: 0; justify-content: flex-start; gap: 8px 18px; }
+  .dra-header-inner { width: calc(100% - 36px); padding: 8px 0 10px; gap: 4px; }
+  .dra-header .brand img { height: 56px; max-width: 150px; }
+  .dra-header nav { width: 100%; justify-content: center; gap: 6px 14px; }
 }
