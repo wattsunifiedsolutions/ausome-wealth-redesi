@@ -910,15 +910,15 @@
 .rh-hero,
 .about-hero { position: relative; }
 
-/* Top padding clears the stacked header (90px logo + 12px gap + nav row).
-   At least 210px so the nav links never overlap or touch hero headlines. */
+/* Top padding clears the stacked header (108px logo + 12px gap + nav row).
+   At least 240px so the nav links never overlap or touch hero headlines. */
 .hero .shell,
 .cinematic-hero .hero-text,
 .hero-navy .wrap,
 .tm-hero .tm-container,
 .diy-hero .diy-wrap,
 .rh-hero .rh-hero-inner,
-.about-hero-copy { padding-top: 220px; }
+.about-hero-copy { padding-top: 240px; }
 @media(max-width:800px){
   .hero .shell,
   .cinematic-hero .hero-text,
@@ -926,7 +926,7 @@
   .tm-hero .tm-container,
   .diy-hero .diy-wrap,
   .rh-hero .rh-hero-inner,
-  .about-hero-copy { padding-top: 180px; }
+  .about-hero-copy { padding-top: 190px; }
 }
 @media(max-width:560px){
   .hero .shell,
@@ -935,7 +935,7 @@
   .tm-hero .tm-container,
   .diy-hero .diy-wrap,
   .rh-hero .rh-hero-inner,
-  .about-hero-copy { padding-top: 150px; }
+  .about-hero-copy { padding-top: 160px; }
 }
 
 /* Subtle top dark gradient on light-background heroes, behind the nav.

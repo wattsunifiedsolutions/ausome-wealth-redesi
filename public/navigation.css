@@ -8,7 +8,9 @@
   z-index: 100;
   display: block;
   padding: 0;
-  background: transparent;
+  /* Strong navy top-fade panel so the logo + nav stay readable over any hero
+     image while still feeling transparent toward the bottom edge. */
+  background: linear-gradient(180deg, rgba(7, 19, 37, .94) 0%, rgba(7, 19, 37, .72) 55%, rgba(7, 19, 37, .18) 88%, rgba(7, 19, 37, 0) 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: none;
   transition: background .4s ease, border-color .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
@@ -41,13 +43,13 @@
 }
 .dra-header .brand img {
   width: auto;
-  height: 90px;
-  max-width: 210px;
+  height: 108px;
+  max-width: 240px;
   object-fit: contain;
   background: transparent;
   transition: height .4s ease, max-width .4s ease;
 }
-.dra-header.scrolled .brand img { height: 70px; max-width: 180px; }
+.dra-header.scrolled .brand img { height: 78px; max-width: 200px; }
 .dra-header nav {
   display: flex;
   flex: 0 0 auto;
@@ -60,11 +62,12 @@
 }
 .dra-header nav > a {
   color: #f4f0e9;
-  font: 600 13px/1.25 Montserrat, Arial, sans-serif;
+  font: 600 14px/1.25 Montserrat, Arial, sans-serif;
   padding: 6px 0;
   border-bottom: 1px solid transparent;
   text-decoration: none;
   white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
 }
 .dra-header nav > a:hover,
 .dra-header nav > a[aria-current="page"] {
@@ -87,8 +90,8 @@
 
 @media (max-width: 800px) {
   .dra-header-inner { width: calc(100% - 36px); padding: 10px 0 10px; gap: 8px; }
-  .dra-header .brand img { height: 72px; max-width: 180px; }
-  .dra-header.scrolled .brand img { height: 56px; max-width: 150px; }
+  .dra-header .brand img { height: 84px; max-width: 210px; }
+  .dra-header.scrolled .brand img { height: 60px; max-width: 160px; }
   .dra-header nav { width: 100%; justify-content: center; gap: 6px 14px; }
   .dra-hero-shade { height: 200px; }
 }
