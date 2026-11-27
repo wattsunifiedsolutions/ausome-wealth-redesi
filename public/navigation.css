@@ -1,4 +1,4 @@
-/* Light ivory navigation bar — clean, luxury, always readable.
+/* Classic professional navy navigation bar — logo left, links right.
    Preserve the official DRA logo asset. */
 .dra-header {
   position: relative;
@@ -8,31 +8,33 @@
   z-index: 20;
   display: block;
   padding: 0;
-  background: #FAF8F4;
-  border-bottom: 1px solid #E5DFD3;
+  background: #001B3D;
+  border-bottom: 1px solid rgba(214, 183, 131, 0.28);
   box-shadow: none;
 }
 .dra-header-inner {
-  width: min(1240px, calc(100% - 56px));
+  width: min(1280px, calc(100% - 56px));
   margin: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
-  padding: 14px 0 12px;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 0;
 }
 .dra-header .brand {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
   background: transparent;
   padding: 0;
   margin: 0;
 }
 .dra-header .brand img {
   width: auto;
-  height: 78px;
-  max-width: 200px;
+  height: 56px;
+  max-width: 220px;
   object-fit: contain;
   background: transparent;
 }
@@ -40,19 +42,20 @@
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 6px clamp(12px, 1.4vw, 22px);
+  gap: 6px clamp(14px, 1.6vw, 26px);
   margin: 0;
   padding: 0;
 }
 .dra-header nav > a {
-  color: #0A1628;
+  color: #f4f0e9;
   font: 600 14px/1.25 Montserrat, Arial, sans-serif;
   padding: 6px 0;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   text-decoration: none;
   white-space: nowrap;
+  transition: color .18s ease, border-color .18s ease;
 }
 .dra-header nav > a:hover,
 .dra-header nav > a[aria-current="page"] {
@@ -60,8 +63,15 @@
   border-bottom-color: #d6b783;
 }
 
-@media (max-width: 800px) {
-  .dra-header-inner { width: calc(100% - 36px); padding: 10px 0 10px; gap: 8px; }
-  .dra-header .brand img { height: 64px; max-width: 170px; }
-  .dra-header nav { width: 100%; justify-content: center; gap: 6px 14px; }
+@media (max-width: 900px) {
+  .dra-header .brand img { height: 46px; max-width: 180px; }
+  .dra-header nav { gap: 6px 14px; }
+  .dra-header nav > a { font-size: 13px; }
+}
+
+@media (max-width: 640px) {
+  .dra-header-inner { width: calc(100% - 28px); gap: 12px; padding: 10px 0; }
+  .dra-header .brand img { height: 40px; max-width: 150px; }
+  .dra-header nav { width: 100%; justify-content: flex-start; gap: 6px 16px; flex-wrap: wrap; }
+  .dra-header nav > a { font-size: 13px; padding: 4px 0; }
 }
