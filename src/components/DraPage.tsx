@@ -194,6 +194,20 @@ export function DraPage({ name }: { name: string }) {
     slider.addEventListener("input", () => update(Number(slider.value)));
   }, [name]);
 
+  // Transparent-over-hero header: add .scrolled once the user scrolls past
+  // the first viewport so links stay readable over light sections.
+  useEffect(() => {
+    const header = document.querySelector<HTMLElement>(".dra-header");
+    if (!header) return;
+    const onScroll = () => {
+      if (window.scrollY > 24) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [name]);
+
   return (
     <div
       ref={pageRef}
