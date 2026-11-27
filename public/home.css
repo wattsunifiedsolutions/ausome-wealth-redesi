@@ -910,14 +910,15 @@
 .rh-hero,
 .about-hero { position: relative; }
 
-/* Top padding clears the stacked header (logo + nav row). */
+/* Top padding clears the stacked header (90px logo + 12px gap + nav row).
+   At least 210px so the nav links never overlap or touch hero headlines. */
 .hero .shell,
 .cinematic-hero .hero-text,
 .hero-navy .wrap,
 .tm-hero .tm-container,
 .diy-hero .diy-wrap,
 .rh-hero .rh-hero-inner,
-.about-hero-copy { padding-top: 150px; }
+.about-hero-copy { padding-top: 220px; }
 @media(max-width:800px){
   .hero .shell,
   .cinematic-hero .hero-text,
@@ -925,7 +926,7 @@
   .tm-hero .tm-container,
   .diy-hero .diy-wrap,
   .rh-hero .rh-hero-inner,
-  .about-hero-copy { padding-top: 120px; }
+  .about-hero-copy { padding-top: 180px; }
 }
 @media(max-width:560px){
   .hero .shell,
@@ -934,10 +935,10 @@
   .tm-hero .tm-container,
   .diy-hero .diy-wrap,
   .rh-hero .rh-hero-inner,
-  .about-hero-copy { padding-top: 104px; }
+  .about-hero-copy { padding-top: 150px; }
 }
 
-/* Subtle top dark gradient ONLY on light-background heroes, behind the nav.
+/* Subtle top dark gradient on light-background heroes, behind the nav.
    Navy heroes already provide contrast, so they get no shade. */
 .rh-hero::before,
 .tm-hero::before,
@@ -948,15 +949,15 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 220px;
+  height: 260px;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(7,19,37,.55) 0%, rgba(7,19,37,.22) 55%, rgba(7,19,37,0) 100%);
+  background: linear-gradient(180deg, rgba(7,19,37,.58) 0%, rgba(7,19,37,.28) 55%, rgba(7,19,37,0) 100%);
 }
 @media(max-width:800px){
   .rh-hero::before,
   .tm-hero::before,
   .diy-hero::before,
-  .about-hero::before { height: 180px; }
+  .about-hero::before { height: 200px; }
 }
 
