@@ -1,4 +1,4 @@
-/* Solid navy navigation bar — clean, professional, always readable.
+/* Light ivory navigation bar — clean, luxury, always readable.
    Preserve the official DRA logo asset. */
 .dra-header {
   position: relative;
@@ -8,8 +8,8 @@
   z-index: 20;
   display: block;
   padding: 0;
-  background: #0A1628;
-  border-bottom: 1px solid rgba(214, 183, 131, 0.25);
+  background: #FAF8F4;
+  border-bottom: 1px solid #E5DFD3;
   box-shadow: none;
 }
 .dra-header-inner {
@@ -47,7 +47,7 @@
   padding: 0;
 }
 .dra-header nav > a {
-  color: #f4f0e9;
+  color: #0A1628;
   font: 600 14px/1.25 Montserrat, Arial, sans-serif;
   padding: 6px 0;
   border-bottom: 1px solid transparent;
