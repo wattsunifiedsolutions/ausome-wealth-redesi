@@ -338,6 +338,7 @@ export function DraPage({ name }: { name: string }) {
             trackingPayload,
             customFields as Record<string, { value?: unknown; label: string }>,
           );
+          void customFields;
         }
 
         const notice = event.currentTarget.querySelector<HTMLElement>("#preview-notice");
