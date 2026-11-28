@@ -240,10 +240,17 @@ export function DraPage({ name }: { name: string }) {
         ).toString();
 
         if (email || phone || first_name) {
+          // Detect which form was submitted via data-form-id / data-form-name.
+          const submittedForm = form as HTMLElement;
+          const formIdAttr = (submittedForm.getAttribute("data-form-id") || "").trim();
+          const formNameAttr = (submittedForm.getAttribute("data-form-name") || "").trim();
+          const formId = formIdAttr || "contact-form";
+          const formName = formNameAttr || "Contact Form";
+
           const trackingPayload = {
             type: "external_form_submission",
             timestamp: Date.now(),
-            formId: "contact-form",
+            formId,
             formData: {
               ...(first_name && { first_name }),
               ...(email && { email }),
@@ -268,7 +275,7 @@ export function DraPage({ name }: { name: string }) {
               deviceType: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "mobile" : "desktop",
               source: "ai_studio",
               projectId: "1795100135767119492",
-              formName: "Contact Form",
+              formName,
             },
           };
           postTrackingEvent(trackingPayload);
