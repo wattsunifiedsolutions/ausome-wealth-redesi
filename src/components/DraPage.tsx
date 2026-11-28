@@ -216,9 +216,23 @@ export function DraPage({ name }: { name: string }) {
             formData: Record<string, unknown>;
             formLabels: Record<string, string>;
           },
+          options: {
+            customFields: Record<string, { value?: unknown; label: string }>;
+          } = { customFields: {} },
         ) => {
+          const { customFields = {} } = options;
+          const eventPayload = {
+            ...trackingPayload,
+            formData: { ...trackingPayload.formData },
+            formLabels: { ...trackingPayload.formLabels },
+          };
+          for (const [key, field] of Object.entries(customFields)) {
+            if (field.value === undefined) continue;
+            eventPayload.formData[key] = field.value;
+            eventPayload.formLabels[key] = field.label;
+          }
           const body = new FormData();
-          body.append("event", JSON.stringify(trackingPayload));
+          body.append("event", JSON.stringify(eventPayload));
           fetch("https://backend.leadconnectorhq.com/external-tracking/events", {
             method: "POST",
             headers: { version: "2021-07-28" },
@@ -239,6 +253,49 @@ export function DraPage({ name }: { name: string }) {
           ""
         ).toString();
 
+        // Custom waitlist fields (registered CRM field ids) — only present on
+        // the VIP waitlist form; standard fields stay in formData above.
+        const val = (name: string) => formDataObj.get(name)?.toString() ?? "";
+        const contactMethod = val("contact_method");
+        const taxNeeds = val("tax_needs");
+        const incomeTypes = formDataObj.getAll("income_types").map(String);
+        const dependents = val("dependents");
+        const householdIncome = val("household_income");
+        const consent = val("consent");
+        const acknowledgment = val("acknowledgment");
+        const submittedForm0 = form as HTMLElement;
+        const formIdAttr0 = (submittedForm0.getAttribute("data-form-id") || "").trim();
+        const isWaitlist = formIdAttr0 === "vip-waitlist";
+        const customFields: Record<string, { value: string; label: string }> = {};
+        if (isWaitlist) {
+          if (contactMethod)
+            customFields["WiKfmUYaTvoefBfafxBv"] = {
+              value: contactMethod,
+              label: "Preferred Contact Method",
+            };
+          if (taxNeeds)
+            customFields["0t06806Ihx0cRgYfyM1G"] = { value: taxNeeds, label: "Tax Needs" };
+          if (incomeTypes.length)
+            customFields["4farrYfzjJRuin75nZC1"] = {
+              value: incomeTypes.join(", "),
+              label: "Income Types",
+            };
+          if (dependents)
+            customFields["uaTYJFOqkMZjyMIvxbbb"] = { value: dependents, label: "Dependents 2027" };
+          if (householdIncome)
+            customFields["G204WNn7NDGI5LzO9J0I"] = {
+              value: householdIncome,
+              label: "Estimated Household Income 2026",
+            };
+          if (consent)
+            customFields["x46ichngYNzrihVa5H9t"] = { value: consent, label: "Waitlist Consent" };
+          if (acknowledgment)
+            customFields["QF8Vm2kfgTmtVspwNbED"] = {
+              value: acknowledgment,
+              label: "Waitlist Acknowledgment",
+            };
+        }
+
         if (email || phone || first_name) {
           // Detect which form was submitted via data-form-id / data-form-name.
           const submittedForm = form as HTMLElement;
@@ -246,6 +303,8 @@ export function DraPage({ name }: { name: string }) {
           const formNameAttr = (submittedForm.getAttribute("data-form-name") || "").trim();
           const formId = formIdAttr || "contact-form";
           const formName = formNameAttr || "Contact Form";
+          void formIdAttr;
+          void formNameAttr;
 
           const trackingPayload = {
             type: "external_form_submission",
@@ -278,7 +337,7 @@ export function DraPage({ name }: { name: string }) {
               formName,
             },
           };
-          postTrackingEvent(trackingPayload);
+          postTrackingEvent(trackingPayload, { customFields });
         }
 
         const notice = event.currentTarget.querySelector<HTMLElement>("#preview-notice");
