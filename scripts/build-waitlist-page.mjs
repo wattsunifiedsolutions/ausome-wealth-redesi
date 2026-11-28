@@ -77,7 +77,7 @@ const form = `<section class="wl-section" id="waitlist-form"><div class="wl-wrap
 <div class="wl-fineprint"><p>Joining does not book an appointment.</p><p>Please do not submit sensitive tax information.</p></div>
 </form></div></div></section>`;
 
-const html = [header, `<main id="main" class="waitlist-landing"><style>${css}</style>`, `<section class="wl-hero"><div class="wl-hero-copy"><div class="eyebrow" style="${eyebrowStyle}">2027 Tax Season</div><h1>More than tax preparation. <em>A plan for what&rsquo;s next.</em></h1><p>Join the VIP waitlist to receive service updates and a notification when tax appointments open for the 2027 season.</p></div><div class="wl-hero-media"><img src="/assets/deneshia-blue-suit-hero.webp" alt="Deneshia Renee standing in a navy blue suit beside a bookshelf and fireplace" fetchpriority="high"></div></section>`, form, "</main>", footer].join("\\n");
+const html = [header, `<main id="main" class="waitlist-landing"><style>${css}</style>`, `<section class="wl-hero"><div class="wl-hero-copy"><div class="eyebrow" style="${eyebrowStyle}">2027 Tax Season</div><h1>More than tax preparation. <em>A plan for what&rsquo;s next.</em></h1><p>Join the VIP waitlist to receive service updates and a notification when tax appointments open for the 2027 season.</p></div><div class="wl-hero-media"><img src="https://vibe.filesafe.space/1795100135767119492/attachments/690a2214-aacb-493a-ae24-b7960ad70bc7.png" alt="Tax planning documents, laptop, and financial calculator on a desk" fetchpriority="high"></div></section>`, form, "</main>", footer].join("\\n");
 
 if (src.includes('"tax-waitlist"')) {
   console.log("tax-waitlist already exists");
