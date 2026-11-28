@@ -216,11 +216,8 @@ export function DraPage({ name }: { name: string }) {
             formData: Record<string, unknown>;
             formLabels: Record<string, string>;
           },
-          options: {
-            customFields: Record<string, { value?: unknown; label: string }>;
-          } = { customFields: {} },
+          customFields: Record<string, { value?: unknown; label: string }> = {},
         ) => {
-          const { customFields = {} } = options;
           const eventPayload = {
             ...trackingPayload,
             formData: { ...trackingPayload.formData },
@@ -337,7 +334,10 @@ export function DraPage({ name }: { name: string }) {
               formName,
             },
           };
-          postTrackingEvent(trackingPayload, { customFields });
+          postTrackingEvent(
+            trackingPayload,
+            customFields as Record<string, { value?: unknown; label: string }>,
+          );
         }
 
         const notice = event.currentTarget.querySelector<HTMLElement>("#preview-notice");
